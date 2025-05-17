@@ -1,0 +1,15 @@
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\bin\Debug\net9.0\EstudoPlanner.Domain.deps.json
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\bin\Debug\net9.0\EstudoPlanner.Domain.dll
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\bin\Debug\net9.0\EstudoPlanner.Domain.pdb
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.AssemblyInfoInputs.cache
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.AssemblyInfo.cs
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.csproj.CoreCompileInputs.cache
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.sourcelink.json
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.dll
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\refint\EstudoPlanner.Domain.dll
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.pdb
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\ref\EstudoPlanner.Domain.dll
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\bin\Debug\net9.0\EstudoPlanner.Domain.runtimeconfig.json
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.csproj.AssemblyReference.cache
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner.Domain\obj\Debug\net9.0\EstudoPlanner.Domain.genruntimeconfig.cache

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "H9zY8ZkaeyIX4XICaSUV7/avhGKhqyj5Y7gZ7kfXMFY=",
+  "Source": "EstudoPlanner.API",
+  "BasePath": "_content/EstudoPlanner.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
