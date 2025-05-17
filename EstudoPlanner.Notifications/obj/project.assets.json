@@ -3470,11 +3470,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj",
+      "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj",
       "projectName": "EstudoPlanner.Notifications",
-      "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj",
+      "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj",
       "packagesPath": "C:\\Users\\Suporte01\\.nuget\\packages\\",
-      "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Notifications\\obj\\",
+      "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Notifications\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Suporte01\\AppData\\Roaming\\NuGet\\NuGet.Config"

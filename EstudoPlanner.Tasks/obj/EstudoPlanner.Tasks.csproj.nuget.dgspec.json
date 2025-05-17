@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj": {}
+    "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj": {}
   },
   "projects": {
-    "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj": {
+    "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj",
+        "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj",
         "projectName": "EstudoPlanner.Tasks",
-        "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj",
+        "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj",
         "packagesPath": "C:\\Users\\Suporte01\\.nuget\\packages\\",
-        "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Tasks\\obj\\",
+        "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Tasks\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Suporte01\\AppData\\Roaming\\NuGet\\NuGet.Config"

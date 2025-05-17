@@ -24,22 +24,33 @@ public class AuthService : IAuthService
     
     public async Task<AuthResultDto> Login(LoginRequestDto request)
     {
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
-        if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+        try
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            {
+                return new AuthResultDto
+                {
+                    Success = false,
+                    Errors = new List<string> { "Invalid Email or Password" }
+                };
+            }
+
+            var token = GenerateToken(user);
+            return new AuthResultDto
+            {
+                Success = true,
+                Token = token
+            };
+        }
+        catch (Exception ex)
         {
             return new AuthResultDto
             {
                 Success = false,
-                Errors = new List<string> { "Invalid Email or Password" }
+                Errors = new List<string> { $"An error occurred during login: {ex.Message}" }
             };
         }
-
-        var token = GenerateToken(user);
-        return new AuthResultDto
-        {
-            Success = true,
-            Token = token
-        };
     }
 
     public async Task<AuthResultDto> Register(RegisterRequestDto request)

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {}
+    "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
+    "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj",
+        "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj",
         "projectName": "EstudoPlanner.Domain",
-        "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj",
+        "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj",
         "packagesPath": "C:\\Users\\Suporte01\\.nuget\\packages\\",
-        "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\obj\\",
+        "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Suporte01\\AppData\\Roaming\\NuGet\\NuGet.Config"

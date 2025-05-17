@@ -3537,11 +3537,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.BLL\\EstudoPlanner.BLL.csproj",
+      "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.BLL\\EstudoPlanner.BLL.csproj",
       "projectName": "EstudoPlanner.BLL",
-      "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.BLL\\EstudoPlanner.BLL.csproj",
+      "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.BLL\\EstudoPlanner.BLL.csproj",
       "packagesPath": "C:\\Users\\Suporte01\\.nuget\\packages\\",
-      "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.BLL\\obj\\",
+      "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.BLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Suporte01\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3556,14 +3556,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DAL\\EstudoPlanner.DAL.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DAL\\EstudoPlanner.DAL.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DAL\\EstudoPlanner.DAL.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DAL\\EstudoPlanner.DAL.csproj"
             },
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj"
             },
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DTO\\EstudoPlanner.DTO.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DTO\\EstudoPlanner.DTO.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DTO\\EstudoPlanner.DTO.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DTO\\EstudoPlanner.DTO.csproj"
             }
           }
         }

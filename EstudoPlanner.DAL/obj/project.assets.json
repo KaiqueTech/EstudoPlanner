@@ -3492,11 +3492,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DAL\\EstudoPlanner.DAL.csproj",
+      "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DAL\\EstudoPlanner.DAL.csproj",
       "projectName": "EstudoPlanner.DAL",
-      "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DAL\\EstudoPlanner.DAL.csproj",
+      "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DAL\\EstudoPlanner.DAL.csproj",
       "packagesPath": "C:\\Users\\Suporte01\\.nuget\\packages\\",
-      "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DAL\\obj\\",
+      "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Suporte01\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3511,8 +3511,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj"
             }
           }
         }

@@ -3786,11 +3786,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.API\\EstudoPlanner.API.csproj",
+      "projectUniqueName": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.API\\EstudoPlanner.API.csproj",
       "projectName": "EstudoPlanner.API",
-      "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.API\\EstudoPlanner.API.csproj",
+      "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.API\\EstudoPlanner.API.csproj",
       "packagesPath": "C:\\Users\\Suporte01\\.nuget\\packages\\",
-      "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.API\\obj\\",
+      "outputPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Suporte01\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3805,20 +3805,20 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.BLL\\EstudoPlanner.BLL.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.BLL\\EstudoPlanner.BLL.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.BLL\\EstudoPlanner.BLL.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.BLL\\EstudoPlanner.BLL.csproj"
             },
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj"
             },
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DTO\\EstudoPlanner.DTO.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.DTO\\EstudoPlanner.DTO.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DTO\\EstudoPlanner.DTO.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.DTO\\EstudoPlanner.DTO.csproj"
             },
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj"
             },
-            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj": {
-              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj"
+            "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj": {
+              "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Tasks\\EstudoPlanner.Tasks.csproj"
             }
           }
         }

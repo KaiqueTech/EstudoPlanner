@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WHjdmTw1a6I=",
+  "dgSpecHash": "cs3Zmf1dgyk=",
   "success": true,
-  "projectFilePath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj",
+  "projectFilePath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Notifications\\EstudoPlanner.Notifications.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Suporte01\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Suporte01\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
