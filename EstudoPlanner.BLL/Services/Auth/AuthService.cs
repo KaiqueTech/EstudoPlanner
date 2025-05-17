@@ -14,12 +14,12 @@ namespace EstudoPlanner.BLL.Services.Auth;
 public class AuthService : IAuthService
 {
     private readonly AppDbContext _context;
-    private readonly IConfiguration _configuration;
+    private readonly JwtTokenGenerateService _jwtTokenGenerateService;
 
-    public AuthService(AppDbContext context, IConfiguration configuration)
+    public AuthService(AppDbContext context, JwtTokenGenerateService jwtTokenGenerateService)
     {
         _context = context;
-        _configuration = configuration;
+        _jwtTokenGenerateService = jwtTokenGenerateService;
     }
     
     public async Task<AuthResultDto> Login(LoginRequestDto request)
@@ -36,7 +36,7 @@ public class AuthService : IAuthService
                 };
             }
 
-            var token = GenerateToken(user);
+            var token = _jwtTokenGenerateService.GenerateToken(user);
             return new AuthResultDto
             {
                 Success = true,
@@ -55,58 +55,44 @@ public class AuthService : IAuthService
 
     public async Task<AuthResultDto> Register(RegisterRequestDto request)
     {
-        if (await _context.Users.AnyAsync(email => email.Email == request.Email))
+        try
+        {
+            if (await _context.Users.AnyAsync(email => email.Email == request.Email))
+            {
+                return new AuthResultDto
+                {
+                    Success = false,
+                    Errors = new List<string> { "Email Already Exists" }
+                };
+            }
+
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
+
+            var user = new UserModel
+            {
+                IdUser = Guid.NewGuid(),
+                Name = request.Name,
+                Email = request.Email,
+                PasswordHash = hashedPassword
+            };
+
+            _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
+
+            var token = _jwtTokenGenerateService.GenerateToken(user);
+            return new AuthResultDto
+            {
+                Success = true,
+                Token = token
+            };
+        }
+        catch(Exception ex)
         {
             return new AuthResultDto
             {
                 Success = false,
-                Errors = new List<string> { "Email Already Exists" }
+                Errors = new List<string> { $"An error occurred during login: {ex.Message}" }
             };
         }
-
-        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
-
-        var user = new UserModel
-        {
-            IdUser = Guid.NewGuid(),
-            Name = request.Name,
-            Email = request.Email,
-            PasswordHash = hashedPassword
-        };
-
-        _context.Users.AddAsync(user);
-        await _context.SaveChangesAsync();
-
-        var token = GenerateToken(user);
-        return new AuthResultDto
-        {
-            Success = true,
-            Token = token
-        };
-    }
-    
-    private string GenerateToken(UserModel user)
-    {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]!);
-
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(new[]
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.IdUser.ToString()),
-                new Claim(ClaimTypes.Name, user.Name),
-                new Claim(ClaimTypes.Email, user.Email)
-            }),
-            Expires = DateTime.UtcNow.AddHours(3),
-            SigningCredentials = new SigningCredentials(
-                new SymmetricSecurityKey(key),
-                SecurityAlgorithms.HmacSha256Signature
-                ),
-            Issuer = _configuration["Jwt:Issuer"],
-            Audience = _configuration["Jwt:Audience"]
-        };
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
     }
 }

@@ -1,4 +1,5 @@
 using System.Text;
+using EstudoPlanner.BLL.Configurations;
 using EstudoPlanner.BLL.Services.Auth;
 using EstudoPlanner.BLL.Services.StudyPlan;
 using EstudoPlanner.DAL.DataContext;
@@ -8,40 +9,21 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Add service to the container
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
+//Database
 builder.Services.AddDbContext<AppDbContext>(options => 
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//Services
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IStudyPlanService, StudyPlanService>();
+builder.Services.AddScoped<JwtTokenGenerateService>();
 
-var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
-
-builder.Services.AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(key),
-
-            ValidateIssuer = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-
-            ValidateAudience = true,
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-
-            ValidateLifetime = true,
-            ClockSkew = TimeSpan.Zero
-        };
-    });
-
+//JWT
+builder.Services.AddJwtConfiguration(builder.Configuration);
 
 
 var app = builder.Build();
@@ -54,7 +36,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 
 
