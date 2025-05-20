@@ -3,19 +3,16 @@ using EstudoPlanner.BLL.Configurations;
 using EstudoPlanner.BLL.Services.Auth;
 using EstudoPlanner.BLL.Services.StudyPlan;
 using EstudoPlanner.DAL.DataContext;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Add service to the container
 builder.Services.AddControllers();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerConfiguration();
 
 //Database
-builder.Services.AddDbContext<AppDbContext>(options => 
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDatabaConfiguration(builder.Configuration);
 
 //Services
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -29,11 +26,11 @@ builder.Services.AddJwtConfiguration(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Estudo Planner API v1");
+});
 
 app.UseHttpsRedirection();
 

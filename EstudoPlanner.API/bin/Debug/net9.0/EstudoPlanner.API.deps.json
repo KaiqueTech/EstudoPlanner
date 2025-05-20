@@ -931,7 +931,10 @@
           "EstudoPlanner.Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.5",
           "Microsoft.EntityFrameworkCore": "9.0.5",
-          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5"
+          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5",
+          "Swashbuckle.AspNetCore.Swagger": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerUI": "8.1.1"
         },
         "runtime": {
           "EstudoPlanner.BLL.dll": {
@@ -946,7 +949,10 @@
           "EstudoPlanner.Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.5",
           "Microsoft.EntityFrameworkCore": "9.0.5",
-          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5"
+          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5",
+          "Swashbuckle.AspNetCore.Swagger": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerUI": "8.1.1"
         },
         "runtime": {
           "EstudoPlanner.DAL.dll": {
@@ -960,7 +966,10 @@
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.5",
           "Microsoft.EntityFrameworkCore": "9.0.5",
-          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5"
+          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5",
+          "Swashbuckle.AspNetCore.Swagger": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerUI": "8.1.1"
         },
         "runtime": {
           "EstudoPlanner.Domain.dll": {
@@ -974,7 +983,10 @@
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.5",
           "Microsoft.EntityFrameworkCore": "9.0.5",
-          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5"
+          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5",
+          "Swashbuckle.AspNetCore.Swagger": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerUI": "8.1.1"
         },
         "runtime": {
           "EstudoPlanner.DTO.dll": {
@@ -988,7 +1000,10 @@
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.5",
           "Microsoft.EntityFrameworkCore": "9.0.5",
-          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5"
+          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5",
+          "Swashbuckle.AspNetCore.Swagger": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerUI": "8.1.1"
         },
         "runtime": {
           "EstudoPlanner.Notifications.dll": {
@@ -1002,7 +1017,10 @@
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.5",
           "Microsoft.EntityFrameworkCore": "9.0.5",
-          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5"
+          "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5",
+          "Swashbuckle.AspNetCore.Swagger": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "8.1.1",
+          "Swashbuckle.AspNetCore.SwaggerUI": "8.1.1"
         },
         "runtime": {
           "EstudoPlanner.Tasks.dll": {
