@@ -4,7 +4,7 @@ public class StudyPlanModel
 {
     public Guid IdStudyPlan { get; set; }
     public string Title { get; set; } = default!;
-    public string Description { get; set; } = default!;
+    public string? Description { get; set; }
     
     public Guid IdUser { get; set; }
     public UserModel  User { get; set; } = default!;

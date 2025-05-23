@@ -20,7 +20,7 @@ public class StudyPlanController : ControllerBase
     public async Task<IActionResult> Create([FromBody]CreateStudyPlanDto  createStudyPlanDto)
     {
         var created = await _studyPlanService.CreateStudyPlan(createStudyPlanDto);
-        return CreatedAtAction(nameof(GetAllStudyPlansByUser), new {userId = created.IdUser, created});
+        return Ok(created);
     }
     
     [HttpGet("study-plan{id}")]

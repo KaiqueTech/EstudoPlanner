@@ -23,7 +23,7 @@ public class StudyPlanService : IStudyPlanService
             {
                 IdStudyPlan = Guid.NewGuid(),
                 Title = createStudyPlanDto.Title,
-                Description = createStudyPlanDto.Description = default!,
+                Description = createStudyPlanDto.Description,
                 IdUser = createStudyPlanDto.IdUser,
                 Schedules = createStudyPlanDto.SchedulesDto.Select(s => 
                 {
@@ -31,7 +31,7 @@ public class StudyPlanService : IStudyPlanService
                     {
                          throw new ArgumentException($"EndTime must be greater than StartTime for day {s.DayOfWeek}");
                     }
-
+                    
                     return new ScheduleModel
                     {
                         IdSchedule = Guid.NewGuid(),
@@ -42,7 +42,7 @@ public class StudyPlanService : IStudyPlanService
                     };
                 }).ToList()
             };
-
+            
             _context.StudyPlans.Add(studyPlan);
             await _context.SaveChangesAsync();
 
@@ -51,7 +51,14 @@ public class StudyPlanService : IStudyPlanService
                 IdStudyPlan = studyPlan.IdStudyPlan,
                 Title = studyPlan.Title,
                 Description = studyPlan.Description,
-                IdUser = studyPlan.IdUser
+                IdUser = studyPlan.IdUser,
+                ScheduleResponses = studyPlan.Schedules.Select(schedule => new ScheduleResponseDto
+                {
+                    IdSchedule = schedule.IdSchedule,
+                    DayOfWeek = schedule.DayOfWeek,
+                    StartTime = schedule.StartTime,
+                    EndTime = schedule.EndTime
+                }).ToList()
             };
         }
         catch (Exception e)

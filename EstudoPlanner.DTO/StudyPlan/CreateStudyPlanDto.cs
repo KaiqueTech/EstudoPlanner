@@ -9,7 +9,7 @@ public class CreateSchedulesDto
 public class CreateStudyPlanDto
 {
     public string Title { get; set; } = default!;
-    public string? Description { get; set; } = default!;
+    public string? Description { get; set; }
     public Guid IdUser { get; set; }
     
     public List<CreateSchedulesDto> SchedulesDto { get; set; } = new List<CreateSchedulesDto>();
