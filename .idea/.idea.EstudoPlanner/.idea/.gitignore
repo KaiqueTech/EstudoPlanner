@@ -11,4 +11,8 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+# Database location
 *.db
+# Unnecessary files for commits
+bin/
+obj/

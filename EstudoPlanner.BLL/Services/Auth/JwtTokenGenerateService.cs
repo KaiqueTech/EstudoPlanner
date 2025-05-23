@@ -18,8 +18,11 @@ public class JwtTokenGenerateService
     
     public string GenerateToken(UserModel user)
     {
+        // var t = _configuration["Jwt:Key"];
+        // Console.WriteLine($"key used to generate token: {t}");
+        
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]!);
+        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:secretKey"]!);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
@@ -30,12 +33,12 @@ public class JwtTokenGenerateService
                 new Claim(ClaimTypes.Email, user.Email)
             }),
             Expires = DateTime.UtcNow.AddHours(3),
+            Issuer = "EstudoPlannerAPI",
+            Audience = "EstudoPlannerUsers",
             SigningCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(key),
                 SecurityAlgorithms.HmacSha256Signature
-            ),
-            Issuer = _configuration["Jwt:Issuer"],
-            Audience = _configuration["Jwt:Audience"]
+            )
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);

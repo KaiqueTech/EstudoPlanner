@@ -32,7 +32,7 @@ public static class SwaggerConfigurationExtensions
                     {
                         Reference = new OpenApiReference
                         {
-                            Type = ReferenceType.Schema,
+                            Type = ReferenceType.SecurityScheme,
                             Id = "Bearer"
                         }
                         

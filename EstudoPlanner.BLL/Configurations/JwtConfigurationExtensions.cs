@@ -10,7 +10,7 @@ public static class JwtConfigurationExtensions
 {
     public static IServiceCollection AddJwtConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
-        var key = Encoding.ASCII.GetBytes(configuration["Jwt:Key"]);
+        var key = Encoding.UTF8.GetBytes(configuration["Jwt:secretKey"]!);
         
         services.AddAuthentication(options =>
             {
@@ -19,16 +19,18 @@ public static class JwtConfigurationExtensions
             })
             .AddJwtBearer(options =>
             {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
 
                     ValidateIssuer = true,
-                    ValidIssuer = configuration["Jwt:Issuer"],
+                    ValidIssuer = "EstudoPlannerAPI",
 
                     ValidateAudience = true,
-                    ValidAudience = configuration["Jwt:Audience"],
+                    ValidAudience = "EstudoPlannerUsers",
 
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
