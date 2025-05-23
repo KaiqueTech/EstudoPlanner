@@ -7,10 +7,10 @@ namespace EstudoPlanner.API.Controllers;
 
 [Route("api/estudo-planner/[controller]")]
 [ApiController]
-public class StudyPalnController : ControllerBase
+public class StudyPlanController : ControllerBase
 {
     private readonly IStudyPlanService _studyPlanService;
-    public StudyPalnController(IStudyPlanService studyPlanService)
+    public StudyPlanController(IStudyPlanService studyPlanService)
     {
         _studyPlanService = studyPlanService;
     }
@@ -20,14 +20,22 @@ public class StudyPalnController : ControllerBase
     public async Task<IActionResult> Create([FromBody]CreateStudyPlanDto  createStudyPlanDto)
     {
         var created = await _studyPlanService.CreateStudyPlan(createStudyPlanDto);
-        return CreatedAtAction(nameof(GetStudyPlansByUser), new {userId = created.IdUser}, created);
+        return Ok(created);
     }
     
-    [HttpGet("user/{userId}")]
+    [HttpGet("study-plan{id}")]
     [Authorize]
-    public async Task<IActionResult> GetStudyPlansByUser(Guid userId)
+    public async Task<IActionResult> GetStudyPlanById(Guid id)
     {
-        var studyPlans = await _studyPlanService.GetAllStudyPlan(userId);
+        var studyPlans = await _studyPlanService.GetStudyPlanById(id);
+        return Ok(studyPlans);
+    }
+
+    [HttpGet("study-plans/{userId}")]
+    [Authorize]
+    public async Task<IActionResult> GetAllStudyPlansByUser(Guid userId)
+    {
+        var studyPlans = await _studyPlanService.GetAllStudyPlanByUserId(userId);
         return Ok(studyPlans);
     }
 }

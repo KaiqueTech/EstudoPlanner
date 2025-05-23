@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EstudoPlanner.BLL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac652a83ef8f2a83d01735ae911a932d24ef2361")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c27d2cf8ece311ab9468ddc5eb6b2c735f3472b")]
 [assembly: System.Reflection.AssemblyProductAttribute("EstudoPlanner.BLL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EstudoPlanner.BLL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

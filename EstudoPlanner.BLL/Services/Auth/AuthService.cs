@@ -48,7 +48,7 @@ public class AuthService : IAuthService
             return new AuthResultDto
             {
                 Success = false,
-                Errors = new List<string> { $"An error occurred during login: {ex.Message}" }
+                Errors = new List<string> { $"An error occurred during registration: {ex.Message}" }
             };
         }
     }
@@ -76,7 +76,7 @@ public class AuthService : IAuthService
                 PasswordHash = hashedPassword
             };
 
-            _context.Users.AddAsync(user);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
             var token = _jwtTokenGenerateService.GenerateToken(user);
