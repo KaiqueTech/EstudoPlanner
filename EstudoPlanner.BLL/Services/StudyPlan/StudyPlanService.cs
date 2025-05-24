@@ -89,6 +89,7 @@ public class StudyPlanService : IStudyPlanService
                 IdUser = studyPlan.IdUser,
                 ScheduleResponses = studyPlan.Schedules.Select(s => new ScheduleResponseDto
                 {
+                    IdSchedule = s.IdSchedule,
                     DayOfWeek = s.DayOfWeek,
                     StartTime = s.StartTime,
                     EndTime = s.EndTime
@@ -132,22 +133,85 @@ public class StudyPlanService : IStudyPlanService
         }
         catch (Exception ex)
         {
-            throw new ArgumentException($"Not found study plan for user ID:{userId}, {ex.Message}");
+            throw new ArgumentException($"Not found study plans for user ID:{userId}, {ex.Message}");
         }
     }
 
-    public Task<bool> UpdateStudyPlan(Guid id, CreateStudyPlanDto createStudyPlanDto)
+    public async Task<StudyPlanResponseDto> UpdateStudyPlan(Guid id, UpdateStudyPlanDto updateStudyPlanDto)
     {
-        throw new NotImplementedException();
-    }
+        try
+        {
+            if (updateStudyPlanDto == null)
+                throw new ArgumentNullException(nameof(updateStudyPlanDto), "Fill in the fields");
 
-    public Task<bool> UpdateStudyPlan(Guid id, StudyPlanResponseDto studyPlanResponseDto)
-    {
-        throw new NotImplementedException();
-    }
+            var existingPlan = await _context.StudyPlans
+                .Include(plan => plan.Schedules)
+                .FirstOrDefaultAsync(plan => plan.IdStudyPlan == id);
 
-    public Task<bool> DeleteStudyPlan(Guid id)
+            if (existingPlan == null)
+                throw new KeyNotFoundException("StudyPlan not found");
+            
+            existingPlan.Title = updateStudyPlanDto.Title;
+            existingPlan.Description = updateStudyPlanDto.Description;
+            
+            _context.Schedules.RemoveRange(existingPlan.Schedules);
+            
+            var newSchedules = updateStudyPlanDto.SchedulesDto.Select(scheduleDto =>
+            {
+                if (scheduleDto.EndTime <= scheduleDto.StartTime)
+                    throw new ArgumentException($"EndTime must be greater than StartTime for day {scheduleDto.DayOfWeek}");
+
+                return new ScheduleModel
+                {
+                    IdSchedule = Guid.NewGuid(),
+                    DayOfWeek = scheduleDto.DayOfWeek,
+                    StartTime = scheduleDto.StartTime,
+                    EndTime = scheduleDto.EndTime,
+                    IdStudyPlan = existingPlan.IdStudyPlan
+                };
+            }).ToList();
+            
+            existingPlan.Schedules = new List<ScheduleModel>();
+            existingPlan.Schedules = newSchedules;
+            
+            _context.StudyPlans.Update(existingPlan);
+            await _context.AddRangeAsync(newSchedules);
+            await _context.SaveChangesAsync();
+            return new StudyPlanResponseDto
+            {
+                Title = existingPlan.Title,
+                Description = existingPlan.Description,
+                ScheduleResponses = existingPlan.Schedules.Select(plan => new ScheduleResponseDto
+                {
+                    DayOfWeek = plan.DayOfWeek,
+                    StartTime = plan.StartTime,
+                    EndTime = plan.EndTime
+                }).ToList()
+            };
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Update failed: {ex.Message}");
+        }
+    }
+    
+
+    public async Task<bool> DeleteStudyPlan(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var existingPlan = await _context.StudyPlans
+                .Include(plan => plan.Schedules)
+                .FirstOrDefaultAsync(plan => plan.IdStudyPlan == id);
+
+            _context.StudyPlans.Remove(existingPlan);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Delete failed: {ex.Message}");
+        }
     }
 }

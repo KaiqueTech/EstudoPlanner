@@ -8,6 +8,6 @@ public interface IStudyPlanService
     Task<StudyPlanResponseDto> CreateStudyPlan(CreateStudyPlanDto createStudyPlanDto);
     Task<StudyPlanResponseDto> GetStudyPlanById(Guid id);
     Task<List<StudyPlanResponseDto>> GetAllStudyPlanByUserId(Guid userId);
-    Task<bool> UpdateStudyPlan(Guid id, CreateStudyPlanDto createStudyPlanDto);
+    Task<StudyPlanResponseDto> UpdateStudyPlan(Guid id, UpdateStudyPlanDto updateStudyPlanDto);
     Task<bool> DeleteStudyPlan(Guid id);
 }

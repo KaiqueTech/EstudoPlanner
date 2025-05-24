@@ -9,5 +9,5 @@ public class StudyPlanModel
     public Guid IdUser { get; set; }
     public UserModel  User { get; set; } = default!;
 
-    public ICollection<ScheduleModel> Schedules { get; set; } = new List<ScheduleModel>();
+    public List<ScheduleModel> Schedules { get; set; } = new List<ScheduleModel>();
 }
