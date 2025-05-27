@@ -8,6 +8,7 @@ public class AppDbContext : DbContext
     public DbSet<UserModel> Users { get; set; }
     public DbSet<ScheduleModel> Schedules { get; set; }
     public DbSet<StudyPlanModel> StudyPlans { get; set; }
+    public DbSet<StudyPlanDisciplineModel>  StudyPlanDisciplines { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
@@ -40,9 +41,24 @@ public class AppDbContext : DbContext
                 .WithOne(schedules => schedules.StudyPlan)
                 .HasForeignKey(schedules => schedules.IdStudyPlan)
                 .OnDelete(DeleteBehavior.Cascade);
+            entity.HasMany(studyPlans => studyPlans.Disciplines)
+                .WithOne(disciplines => disciplines.StudyPlan)
+                .HasForeignKey(disciplines => disciplines.IdStudyPlan)
+                .OnDelete(DeleteBehavior.Cascade);
             entity.Property(studyPlans => studyPlans.IdStudyPlan).ValueGeneratedOnAdd();
             entity.Property(studyPlans => studyPlans.Title).IsRequired().HasMaxLength(255);
 
+        });
+
+        modelBuilder.Entity<StudyPlanDisciplineModel>(entity =>
+        {
+            entity.ToTable("tb_StudyPlanDisciplines");
+            entity.HasKey(discipline => discipline.IdStudyPlanDiscipline);
+
+            entity.HasOne(discipline => discipline.StudyPlan)
+                .WithMany(plan => plan.Disciplines)
+                .HasForeignKey(discipline => discipline.IdStudyPlan)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<ScheduleModel>(entity =>
@@ -50,9 +66,9 @@ public class AppDbContext : DbContext
             entity.ToTable("tb_Schedules");
             entity.HasKey(schedule => schedule.IdSchedule);
             entity.Property(schedule => schedule.IdSchedule).ValueGeneratedOnAdd();
-            entity.Property(schedules => schedules.DayOfWeek).IsRequired();
-            entity.Property(schedules => schedules.StartTime).IsRequired();
-            entity.Property(schedules => schedules.EndTime).IsRequired();
+            entity.Property(schedule => schedule.DayOfWeek).IsRequired();
+            entity.Property(schedule => schedule.StartTime).IsRequired();
+            entity.Property(schedule => schedule.EndTime).IsRequired();
             
             
             entity.HasOne(schedule => schedule.StudyPlan)

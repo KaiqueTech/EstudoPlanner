@@ -1007,6 +1007,7 @@
       "EstudoPlanner.DTO/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "EstudoPlanner.Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.5",
           "Microsoft.EntityFrameworkCore": "9.0.5",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5",

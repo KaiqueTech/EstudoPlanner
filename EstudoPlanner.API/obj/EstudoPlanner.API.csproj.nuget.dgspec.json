@@ -474,7 +474,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj": {
+                "projectPath": "D:\\Kaique\\Projetos\\Projeto-Estudos\\EstudoPlanner\\EstudoPlanner.Domain\\EstudoPlanner.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

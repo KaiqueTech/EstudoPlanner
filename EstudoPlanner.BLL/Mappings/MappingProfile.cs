@@ -15,9 +15,11 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
             .ForMember(dest => dest.Token, opt => opt.Ignore());
 
-        CreateMap<ScheduleModel, ScheduleResponseDto>();
+        //StudyPlans
         CreateMap<StudyPlanModel, StudyPlanResponseDto>()
             .ForMember(dest => dest.ScheduleResponses, opt 
                 => opt.MapFrom(src => src.Schedules));
+        CreateMap<ScheduleModel, ScheduleResponseDto>();
+        CreateMap<StudyPlanDisciplineModel, DisciplineResponseDto>();
     }
 }

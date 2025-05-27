@@ -28,6 +28,11 @@ public class StudyPlanService : IStudyPlanService
                 Title = createStudyPlanDto.Title,
                 Description = createStudyPlanDto.Description,
                 IdUser = createStudyPlanDto.IdUser,
+                Disciplines = createStudyPlanDto.DisciplinesDto.Select(d => new StudyPlanDisciplineModel
+                {
+                    IdStudyPlan = Guid.NewGuid(),
+                    Discipline = d.Discipline
+                }).ToList(),
                 Schedules = createStudyPlanDto.SchedulesDto.Select(s => 
                 {
                     if (s.EndTime <= s.StartTime)
@@ -49,20 +54,6 @@ public class StudyPlanService : IStudyPlanService
             _context.StudyPlans.Add(studyPlan);
             await _context.SaveChangesAsync();
 
-            // return new StudyPlanResponseDto
-            // {
-            //     IdStudyPlan = studyPlan.IdStudyPlan,
-            //     Title = studyPlan.Title,
-            //     Description = studyPlan.Description,
-            //     IdUser = studyPlan.IdUser,
-            //     ScheduleResponses = studyPlan.Schedules.Select(schedule => new ScheduleResponseDto
-            //     {
-            //         IdSchedule = schedule.IdSchedule,
-            //         DayOfWeek = schedule.DayOfWeek,
-            //         StartTime = schedule.StartTime,
-            //         EndTime = schedule.EndTime
-            //     }).ToList()
-            // };
             return _mapper.Map<StudyPlanResponseDto>(studyPlan);
         }
         catch (Exception e)
@@ -84,21 +75,7 @@ public class StudyPlanService : IStudyPlanService
             {
                 throw new KeyNotFoundException("StudyPlan not found");
             }
-
-            // return new StudyPlanResponseDto
-            // {
-            //     IdStudyPlan = studyPlan.IdStudyPlan,
-            //     Title = studyPlan.Title,
-            //     Description = studyPlan.Description,
-            //     IdUser = studyPlan.IdUser,
-            //     ScheduleResponses = studyPlan.Schedules.Select(s => new ScheduleResponseDto
-            //     {
-            //         IdSchedule = s.IdSchedule,
-            //         DayOfWeek = s.DayOfWeek,
-            //         StartTime = s.StartTime,
-            //         EndTime = s.EndTime
-            //     }).ToList()
-            // };
+            
             return _mapper.Map<StudyPlanResponseDto>(studyPlan);
         }
         catch (Exception ex)
@@ -120,20 +97,7 @@ public class StudyPlanService : IStudyPlanService
             {
                 throw new KeyNotFoundException("StudyPlan not found");
             }
-
-            // var response = studyPlans.Select(plan => new StudyPlanResponseDto
-            // {
-            //     IdStudyPlan = plan.IdStudyPlan,
-            //     Title = plan.Title,
-            //     Description = plan.Description,
-            //     IdUser = plan.IdUser,
-            //     ScheduleResponses = plan.Schedules.Select(schedule => new ScheduleResponseDto
-            //     {
-            //         DayOfWeek = schedule.DayOfWeek,
-            //         StartTime = schedule.StartTime,
-            //         EndTime = schedule.EndTime
-            //     }).ToList()
-            // }).ToList();
+            
             return _mapper.Map<List<StudyPlanResponseDto>>(studyPlans);
         }
         catch (Exception ex)
@@ -151,6 +115,7 @@ public class StudyPlanService : IStudyPlanService
 
             var existingPlan = await _context.StudyPlans
                 .Include(plan => plan.Schedules)
+                //.AsNoTracking()
                 .FirstOrDefaultAsync(plan => plan.IdStudyPlan == id);
 
             if (existingPlan == null)
@@ -158,8 +123,14 @@ public class StudyPlanService : IStudyPlanService
             
             existingPlan.Title = updateStudyPlanDto.Title;
             existingPlan.Description = updateStudyPlanDto.Description;
+            existingPlan.Disciplines = updateStudyPlanDto.DisciplineDto.Select(d => new StudyPlanDisciplineModel
+            {
+                IdStudyPlan = Guid.Empty,
+                Discipline = d.Discipline
+            }).ToList();
             
             _context.Schedules.RemoveRange(existingPlan.Schedules);
+            await _context.SaveChangesAsync();
             
             var newSchedules = updateStudyPlanDto.SchedulesDto.Select(scheduleDto =>
             {
@@ -176,23 +147,12 @@ public class StudyPlanService : IStudyPlanService
                 };
             }).ToList();
             
-            existingPlan.Schedules = new List<ScheduleModel>();
             existingPlan.Schedules = newSchedules;
             
-            _context.StudyPlans.Update(existingPlan);
-            // await _context.AddRangeAsync(newSchedules);
+            //_context.StudyPlans.Update(existingPlan);
+            await _context.AddRangeAsync(newSchedules);
             await _context.SaveChangesAsync();
-            // return new StudyPlanResponseDto
-            // {
-            //     Title = existingPlan.Title,
-            //     Description = existingPlan.Description,
-            //     ScheduleResponses = existingPlan.Schedules.Select(plan => new ScheduleResponseDto
-            //     {
-            //         DayOfWeek = plan.DayOfWeek,
-            //         StartTime = plan.StartTime,
-            //         EndTime = plan.EndTime
-            //     }).ToList()
-            // };
+
             return _mapper.Map<StudyPlanResponseDto>(existingPlan);
         }
         catch (Exception ex)
