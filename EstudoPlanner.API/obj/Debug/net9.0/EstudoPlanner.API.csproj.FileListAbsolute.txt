@@ -185,6 +185,8 @@ D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\EstudoPlanner.API.runtimeconfig.json
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\EstudoPlanner.API.dll
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\EstudoPlanner.API.pdb
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\AutoMapper.dll
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\BCrypt.Net-Next.dll
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\Humanizer.dll
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

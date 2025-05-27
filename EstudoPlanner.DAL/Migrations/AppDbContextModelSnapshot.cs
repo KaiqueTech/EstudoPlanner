@@ -42,6 +42,25 @@ namespace EstudoPlanner.DAL.Migrations
                     b.ToTable("tb_Schedules", (string)null);
                 });
 
+            modelBuilder.Entity("EstudoPlanner.Domain.Models.StudyPlanDisciplineModel", b =>
+                {
+                    b.Property<Guid>("IdStudyPlanDiscipline")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Discipline")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<Guid>("IdStudyPlan")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("IdStudyPlanDiscipline");
+
+                    b.HasIndex("IdStudyPlan");
+
+                    b.ToTable("tb_StudyPlanDisciplines", (string)null);
+                });
+
             modelBuilder.Entity("EstudoPlanner.Domain.Models.StudyPlanModel", b =>
                 {
                     b.Property<Guid>("IdStudyPlan")
@@ -105,6 +124,17 @@ namespace EstudoPlanner.DAL.Migrations
                     b.Navigation("StudyPlan");
                 });
 
+            modelBuilder.Entity("EstudoPlanner.Domain.Models.StudyPlanDisciplineModel", b =>
+                {
+                    b.HasOne("EstudoPlanner.Domain.Models.StudyPlanModel", "StudyPlan")
+                        .WithMany("Disciplines")
+                        .HasForeignKey("IdStudyPlan")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("StudyPlan");
+                });
+
             modelBuilder.Entity("EstudoPlanner.Domain.Models.StudyPlanModel", b =>
                 {
                     b.HasOne("EstudoPlanner.Domain.Models.UserModel", "User")
@@ -118,6 +148,8 @@ namespace EstudoPlanner.DAL.Migrations
 
             modelBuilder.Entity("EstudoPlanner.Domain.Models.StudyPlanModel", b =>
                 {
+                    b.Navigation("Disciplines");
+
                     b.Navigation("Schedules");
                 });
 

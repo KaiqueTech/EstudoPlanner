@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Schedules\" />
+    <ProjectReference Include="..\EstudoPlanner.Domain\EstudoPlanner.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EstudoPlanner.Notifications")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c27d2cf8ece311ab9468ddc5eb6b2c735f3472b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a9be5922053266fd1ef466264dac8043896a4ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("EstudoPlanner.Notifications")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EstudoPlanner.Notifications")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

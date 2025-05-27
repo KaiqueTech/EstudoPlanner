@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.5" />
@@ -31,6 +32,10 @@
     <ProjectReference Include="..\EstudoPlanner.Domain\EstudoPlanner.Domain.csproj" />
     <ProjectReference Include="..\EstudoPlanner.Notifications\EstudoPlanner.Notifications.csproj" />
     <ProjectReference Include="..\EstudoPlanner.Tasks\EstudoPlanner.Tasks.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Database\" />
   </ItemGroup>
 
 </Project>
