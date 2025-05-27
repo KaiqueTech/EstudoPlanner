@@ -356,3 +356,5 @@ D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\obj\Debug\net
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\obj\Debug\net9.0\EstudoPlanner.API.pdb
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\obj\Debug\net9.0\EstudoPlanner.API.genruntimeconfig.cache
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\obj\Debug\net9.0\ref\EstudoPlanner.API.dll
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\AutoMapper.dll
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.API\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

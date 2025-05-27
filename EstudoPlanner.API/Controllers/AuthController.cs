@@ -1,5 +1,7 @@
-﻿using EstudoPlanner.BLL.Services.Auth;
+﻿using System.Security.Claims;
+using EstudoPlanner.BLL.Services.Auth;
 using EstudoPlanner.DTO.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,24 +20,46 @@ public class AuthController : ControllerBase
     [HttpPost("Register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequestDto requestDto)
     {
-        var result = await _authService.Register(requestDto);
-        if (!result.Success)
+        if (!ModelState.IsValid)
         {
-            return BadRequest(result);
+            return BadRequest(ModelState);
         }
+        var result = await _authService.Register(requestDto);
 
-        return Ok(result);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
 
     [HttpPost("Login")]
     public async Task<IActionResult> Login([FromBody] LoginRequestDto requestDto)
     {
-        var result = await _authService.Login(requestDto);
-        if (!result.Success)
+        if (!ModelState.IsValid)
         {
-            return Unauthorized(result);
+            return BadRequest(ModelState);
+        }
+        var result = await _authService.Login(requestDto);
+
+        return result.Success ? Ok(result) : BadRequest(result);
+    }
+
+    [Authorize]
+    [HttpPut("update-login")]
+    public async Task<IActionResult> UpdateLogin([FromBody] LoginUpdateDto requestDto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
         }
 
-        return Ok(result);
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (userIdClaim == null)
+        {
+            return Unauthorized();
+        }
+
+        var userId = Guid.Parse(userIdClaim);
+
+        var result = await _authService.UpdateLogin(userId, requestDto);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
+
 }

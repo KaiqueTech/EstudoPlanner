@@ -90,7 +90,7 @@ public class StudyPlanController : ControllerBase
     {
         try
         {
-            var deleted = _studyPlanService.DeleteStudyPlan(id);
+            var deleted = await _studyPlanService.DeleteStudyPlan(id);
             return Ok(deleted);
         }
         catch (Exception e)

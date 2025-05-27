@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using AutoMapper;
 using EstudoPlanner.DAL.DataContext;
 using EstudoPlanner.Domain.Models;
 using EstudoPlanner.DTO.StudyPlan;
@@ -10,9 +11,11 @@ namespace EstudoPlanner.BLL.Services.StudyPlan;
 public class StudyPlanService : IStudyPlanService
 {
     private readonly AppDbContext _context;
-    public StudyPlanService(AppDbContext context)
+    private readonly IMapper _mapper;
+    public StudyPlanService(AppDbContext context, IMapper mapper)
     {
-        _context = context;   
+        _context = context;
+        _mapper = mapper;
     }
     
     public async Task<StudyPlanResponseDto> CreateStudyPlan(CreateStudyPlanDto createStudyPlanDto)
@@ -46,20 +49,21 @@ public class StudyPlanService : IStudyPlanService
             _context.StudyPlans.Add(studyPlan);
             await _context.SaveChangesAsync();
 
-            return new StudyPlanResponseDto
-            {
-                IdStudyPlan = studyPlan.IdStudyPlan,
-                Title = studyPlan.Title,
-                Description = studyPlan.Description,
-                IdUser = studyPlan.IdUser,
-                ScheduleResponses = studyPlan.Schedules.Select(schedule => new ScheduleResponseDto
-                {
-                    IdSchedule = schedule.IdSchedule,
-                    DayOfWeek = schedule.DayOfWeek,
-                    StartTime = schedule.StartTime,
-                    EndTime = schedule.EndTime
-                }).ToList()
-            };
+            // return new StudyPlanResponseDto
+            // {
+            //     IdStudyPlan = studyPlan.IdStudyPlan,
+            //     Title = studyPlan.Title,
+            //     Description = studyPlan.Description,
+            //     IdUser = studyPlan.IdUser,
+            //     ScheduleResponses = studyPlan.Schedules.Select(schedule => new ScheduleResponseDto
+            //     {
+            //         IdSchedule = schedule.IdSchedule,
+            //         DayOfWeek = schedule.DayOfWeek,
+            //         StartTime = schedule.StartTime,
+            //         EndTime = schedule.EndTime
+            //     }).ToList()
+            // };
+            return _mapper.Map<StudyPlanResponseDto>(studyPlan);
         }
         catch (Exception e)
         {
@@ -81,20 +85,21 @@ public class StudyPlanService : IStudyPlanService
                 throw new KeyNotFoundException("StudyPlan not found");
             }
 
-            return new StudyPlanResponseDto
-            {
-                IdStudyPlan = studyPlan.IdStudyPlan,
-                Title = studyPlan.Title,
-                Description = studyPlan.Description,
-                IdUser = studyPlan.IdUser,
-                ScheduleResponses = studyPlan.Schedules.Select(s => new ScheduleResponseDto
-                {
-                    IdSchedule = s.IdSchedule,
-                    DayOfWeek = s.DayOfWeek,
-                    StartTime = s.StartTime,
-                    EndTime = s.EndTime
-                }).ToList()
-            };
+            // return new StudyPlanResponseDto
+            // {
+            //     IdStudyPlan = studyPlan.IdStudyPlan,
+            //     Title = studyPlan.Title,
+            //     Description = studyPlan.Description,
+            //     IdUser = studyPlan.IdUser,
+            //     ScheduleResponses = studyPlan.Schedules.Select(s => new ScheduleResponseDto
+            //     {
+            //         IdSchedule = s.IdSchedule,
+            //         DayOfWeek = s.DayOfWeek,
+            //         StartTime = s.StartTime,
+            //         EndTime = s.EndTime
+            //     }).ToList()
+            // };
+            return _mapper.Map<StudyPlanResponseDto>(studyPlan);
         }
         catch (Exception ex)
         {
@@ -116,20 +121,20 @@ public class StudyPlanService : IStudyPlanService
                 throw new KeyNotFoundException("StudyPlan not found");
             }
 
-            var response = studyPlans.Select(plan => new StudyPlanResponseDto
-            {
-                IdStudyPlan = plan.IdStudyPlan,
-                Title = plan.Title,
-                Description = plan.Description,
-                IdUser = plan.IdUser,
-                ScheduleResponses = plan.Schedules.Select(schedule => new ScheduleResponseDto
-                {
-                    DayOfWeek = schedule.DayOfWeek,
-                    StartTime = schedule.StartTime,
-                    EndTime = schedule.EndTime
-                }).ToList()
-            }).ToList();
-            return response;
+            // var response = studyPlans.Select(plan => new StudyPlanResponseDto
+            // {
+            //     IdStudyPlan = plan.IdStudyPlan,
+            //     Title = plan.Title,
+            //     Description = plan.Description,
+            //     IdUser = plan.IdUser,
+            //     ScheduleResponses = plan.Schedules.Select(schedule => new ScheduleResponseDto
+            //     {
+            //         DayOfWeek = schedule.DayOfWeek,
+            //         StartTime = schedule.StartTime,
+            //         EndTime = schedule.EndTime
+            //     }).ToList()
+            // }).ToList();
+            return _mapper.Map<List<StudyPlanResponseDto>>(studyPlans);
         }
         catch (Exception ex)
         {
@@ -175,19 +180,20 @@ public class StudyPlanService : IStudyPlanService
             existingPlan.Schedules = newSchedules;
             
             _context.StudyPlans.Update(existingPlan);
-            await _context.AddRangeAsync(newSchedules);
+            // await _context.AddRangeAsync(newSchedules);
             await _context.SaveChangesAsync();
-            return new StudyPlanResponseDto
-            {
-                Title = existingPlan.Title,
-                Description = existingPlan.Description,
-                ScheduleResponses = existingPlan.Schedules.Select(plan => new ScheduleResponseDto
-                {
-                    DayOfWeek = plan.DayOfWeek,
-                    StartTime = plan.StartTime,
-                    EndTime = plan.EndTime
-                }).ToList()
-            };
+            // return new StudyPlanResponseDto
+            // {
+            //     Title = existingPlan.Title,
+            //     Description = existingPlan.Description,
+            //     ScheduleResponses = existingPlan.Schedules.Select(plan => new ScheduleResponseDto
+            //     {
+            //         DayOfWeek = plan.DayOfWeek,
+            //         StartTime = plan.StartTime,
+            //         EndTime = plan.EndTime
+            //     }).ToList()
+            // };
+            return _mapper.Map<StudyPlanResponseDto>(existingPlan);
         }
         catch (Exception ex)
         {
@@ -203,6 +209,11 @@ public class StudyPlanService : IStudyPlanService
             var existingPlan = await _context.StudyPlans
                 .Include(plan => plan.Schedules)
                 .FirstOrDefaultAsync(plan => plan.IdStudyPlan == id);
+
+            if (existingPlan == null)
+            {
+                throw new KeyNotFoundException("StudyPlan not found");
+            }
 
             _context.StudyPlans.Remove(existingPlan);
             await _context.SaveChangesAsync();

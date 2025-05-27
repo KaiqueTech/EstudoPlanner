@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EstudoPlanner.DTO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9047c242cf82079b4db51c42b45e2740b7dc0cae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9b636aaff09db4dbae7044072cbaa503037877d")]
 [assembly: System.Reflection.AssemblyProductAttribute("EstudoPlanner.DTO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EstudoPlanner.DTO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
