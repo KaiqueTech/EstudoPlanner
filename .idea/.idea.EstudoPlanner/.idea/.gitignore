@@ -16,3 +16,5 @@
 # Unnecessary files for commits
 bin/
 obj/
+Database/
+*appsettings

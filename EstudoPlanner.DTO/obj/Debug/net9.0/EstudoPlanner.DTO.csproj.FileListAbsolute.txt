@@ -17,12 +17,15 @@ D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\bin\Debug\net
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\bin\Debug\net9.0\EstudoPlanner.DTO.runtimeconfig.json
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\bin\Debug\net9.0\EstudoPlanner.DTO.dll
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\bin\Debug\net9.0\EstudoPlanner.DTO.pdb
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\bin\Debug\net9.0\EstudoPlanner.Domain.dll
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\bin\Debug\net9.0\EstudoPlanner.Domain.pdb
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPlanner.DTO.csproj.AssemblyReference.cache
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPlanner.DTO.GeneratedMSBuildEditorConfig.editorconfig
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPlanner.DTO.AssemblyInfoInputs.cache
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPlanner.DTO.AssemblyInfo.cs
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPlanner.DTO.csproj.CoreCompileInputs.cache
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPlanner.DTO.sourcelink.json
+D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPl.082044A6.Up2Date
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPlanner.DTO.dll
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\refint\EstudoPlanner.DTO.dll
 D:\Kaique\Projetos\Projeto-Estudos\EstudoPlanner\EstudoPlanner.DTO\obj\Debug\net9.0\EstudoPlanner.DTO.pdb

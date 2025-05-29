@@ -5,7 +5,7 @@ namespace EstudoPlanner.BLL.Services.StudyPlan;
 
 public interface IStudyPlanService
 {
-    Task<StudyPlanResponseDto> CreateStudyPlan(CreateStudyPlanDto createStudyPlanDto);
+    Task<StudyPlanResponseDto> CreateStudyPlan(Guid userId,CreateStudyPlanDto createStudyPlanDto);
     Task<StudyPlanResponseDto> GetStudyPlanById(Guid id);
     Task<List<StudyPlanResponseDto>> GetAllStudyPlanByUserId(Guid userId);
     Task<StudyPlanResponseDto> UpdateStudyPlan(Guid id, UpdateStudyPlanDto updateStudyPlanDto);
