@@ -9,5 +9,4 @@ public class UserModel
 
     public ICollection<StudyPlanModel> StudyPlans { get; private set; } = new List<StudyPlanModel>();
     
-
 }

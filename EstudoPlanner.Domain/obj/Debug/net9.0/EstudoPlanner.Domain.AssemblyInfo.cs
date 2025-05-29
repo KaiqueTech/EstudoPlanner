@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EstudoPlanner.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a9be5922053266fd1ef466264dac8043896a4ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72ac8e1939a781cea8d28b54e34d0df35b1ab947")]
 [assembly: System.Reflection.AssemblyProductAttribute("EstudoPlanner.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EstudoPlanner.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

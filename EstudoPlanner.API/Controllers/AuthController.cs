@@ -45,21 +45,30 @@ public class AuthController : ControllerBase
     [HttpPut("update-login")]
     public async Task<IActionResult> UpdateLogin([FromBody] LoginUpdateDto requestDto)
     {
-        if (!ModelState.IsValid)
+        try
         {
-            return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            var userId = Guid.Parse(userIdClaim);
+
+            var result = await _authService.UpdateLogin(userId, requestDto);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+        catch (Exception ex)
+        {
+            StatusCode(400, ex.Message);
+            return NotFound();
         }
 
-        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        if (userIdClaim == null)
-        {
-            return Unauthorized();
-        }
-
-        var userId = Guid.Parse(userIdClaim);
-
-        var result = await _authService.UpdateLogin(userId, requestDto);
-        return result.Success ? Ok(result) : BadRequest(result);
     }
 
 }

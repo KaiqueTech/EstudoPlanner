@@ -18,7 +18,7 @@ public class StudyPlanService : IStudyPlanService
         _mapper = mapper;
     }
     
-    public async Task<StudyPlanResponseDto> CreateStudyPlan(CreateStudyPlanDto createStudyPlanDto)
+    public async Task<StudyPlanResponseDto> CreateStudyPlan(Guid userId,CreateStudyPlanDto createStudyPlanDto)
     {
         try
         {
@@ -27,11 +27,11 @@ public class StudyPlanService : IStudyPlanService
                 IdStudyPlan = Guid.NewGuid(),
                 Title = createStudyPlanDto.Title,
                 Description = createStudyPlanDto.Description,
-                IdUser = createStudyPlanDto.IdUser,
-                Disciplines = createStudyPlanDto.DisciplinesDto.Select(d => new StudyPlanDisciplineModel
+                IdUser = userId,
+                Disciplines = createStudyPlanDto.DisciplinesDto.Select(discipline => new StudyPlanDisciplineModel
                 {
-                    IdStudyPlan = Guid.NewGuid(),
-                    Discipline = d.Discipline
+                    IdStudyPlanDiscipline = Guid.NewGuid(),
+                    Discipline = discipline.Discipline
                 }).ToList(),
                 Schedules = createStudyPlanDto.SchedulesDto.Select(s => 
                 {
@@ -123,10 +123,10 @@ public class StudyPlanService : IStudyPlanService
             
             existingPlan.Title = updateStudyPlanDto.Title;
             existingPlan.Description = updateStudyPlanDto.Description;
-            existingPlan.Disciplines = updateStudyPlanDto.DisciplineDto.Select(d => new StudyPlanDisciplineModel
+            existingPlan.Disciplines = updateStudyPlanDto.DisciplineDto.Select(discipline => new StudyPlanDisciplineModel
             {
-                IdStudyPlan = Guid.Empty,
-                Discipline = d.Discipline
+                IdStudyPlanDiscipline = Guid.NewGuid(),
+                Discipline = discipline.Discipline
             }).ToList();
             
             _context.Schedules.RemoveRange(existingPlan.Schedules);

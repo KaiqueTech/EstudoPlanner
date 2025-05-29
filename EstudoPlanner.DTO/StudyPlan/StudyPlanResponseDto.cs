@@ -14,6 +14,7 @@ public class ScheduleResponseDto
 
 public class DisciplineResponseDto
 {
+    public Guid IdStudyPlanDiscipline { get; set; }
     public DisciplinesEnum Discipline { get; set; }
 }
 public class StudyPlanResponseDto

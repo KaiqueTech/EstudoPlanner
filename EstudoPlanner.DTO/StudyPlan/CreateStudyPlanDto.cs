@@ -12,7 +12,6 @@ public class CreateSchedulesDto
 
 public class CreateDisciplineDto
 {
-    public Guid idDiscipline { get; set; }
     public DisciplinesEnum Discipline { get; set; }
 }
 public class CreateStudyPlanDto
@@ -20,7 +19,7 @@ public class CreateStudyPlanDto
     [Required(ErrorMessage = "Title is required")]
     public string Title { get; set; } = default!;
     public string? Description { get; set; }
-    public Guid IdUser { get; set; }
+    // public Guid IdUser { get; set; }
 
     public List<CreateDisciplineDto> DisciplinesDto { get; set; } = new List<CreateDisciplineDto>();
     [Required(ErrorMessage = "Schedules is required")]

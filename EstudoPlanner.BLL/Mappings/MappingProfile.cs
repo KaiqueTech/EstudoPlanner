@@ -15,7 +15,7 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
             .ForMember(dest => dest.Token, opt => opt.Ignore());
 
-        //StudyPlans
+        //StudyPlans, Schedules and Discipline
         CreateMap<StudyPlanModel, StudyPlanResponseDto>()
             .ForMember(dest => dest.ScheduleResponses, opt 
                 => opt.MapFrom(src => src.Schedules));

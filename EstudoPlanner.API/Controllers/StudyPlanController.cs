@@ -1,4 +1,5 @@
-﻿using EstudoPlanner.BLL.Services.StudyPlan;
+﻿using System.Security.Claims;
+using EstudoPlanner.BLL.Services.StudyPlan;
 using EstudoPlanner.DTO.StudyPlan;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +22,14 @@ public class StudyPlanController : ControllerBase
     {
         try
         {
-            var created = await _studyPlanService.CreateStudyPlan(createStudyPlanDto);
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+            
+            var userId = Guid.Parse(userIdClaim);
+            var created = await _studyPlanService.CreateStudyPlan(userId,createStudyPlanDto);
             return Ok(created);
         }
         catch (Exception e)
@@ -47,29 +55,43 @@ public class StudyPlanController : ControllerBase
         }
     }
 
-    [HttpGet("study-plans/{userId}")]
+    [HttpGet("study-plans")]
     [Authorize]
-    public async Task<IActionResult> GetAllStudyPlansByUser(Guid userId)
+    public async Task<IActionResult> GetAllStudyPlansByUser()
     {
         try
         {
+            var userIdClaims = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userIdClaims == null)
+            {
+                return Unauthorized();
+            }
+            var userId = Guid.Parse(userIdClaims);
             var studyPlans = await _studyPlanService.GetAllStudyPlanByUserId(userId);
             return Ok(studyPlans);
         }
         catch (Exception ex)
         {
-            StatusCode(400, $"Not found study plans for ID:{userId}: {ex.Message}");
+            StatusCode(400, $"Not found study plans: {ex.Message}");
             return BadRequest();
         }
     }
 
-    [HttpPut("update-study-plan{id}")]
+    [HttpPut("update-study-plan")]
     [Authorize]
-    public async Task<IActionResult> UpdateStudyPlan(Guid id, [FromBody]UpdateStudyPlanDto updateStudyPlanDto)
+    public async Task<IActionResult> UpdateStudyPlan([FromBody]UpdateStudyPlanDto updateStudyPlanDto)
     {
         try
         {
-            var studyPlan = await _studyPlanService.UpdateStudyPlan(id, updateStudyPlanDto);
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+            
+            var userId = Guid.Parse(userIdClaim);
+            var studyPlan = await _studyPlanService.UpdateStudyPlan(userId,updateStudyPlanDto);
+            
             if (studyPlan == null)
             {
                 NotFound("Study plan not found");
